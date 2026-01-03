@@ -1,0 +1,115 @@
+#include <stdio.h>
+int main() 
+{
+    int dailysav,days,i;
+    int ch;
+    float totalsav = 0,finalamt = 0;
+    FILE *file;
+
+    printf("----- Micro Investment Platform -----\n");
+    printf("Designed for First-Time Investors\n\n");
+//How much user will put in for how long
+    printf("Enter daily saving amount (from Rs.5):");
+    scanf("%d",&dailysav);
+
+    if(dailysav<5) 
+	{
+        printf("Invalid amount. Please enter between Rs.1 and Rs.5.\n");
+        return 0;
+    }
+
+    printf("Enter number of days you want to save:");
+    scanf("%d",&days);
+
+    for (i=1;i<=days;i++) 
+	{
+        totalsav+=dailysav; //Adding same amount for the entered number of days
+    }
+//Giving chs for investment
+    printf("\nChoose Investment Option:\n");
+    printf("1. Fixed Savings (4%% return)\n");
+    printf("2. Government Bond (6%% return)\n");
+    printf("3. Digital Gold (5%% return)\n");
+    printf("Enter your choice:");
+    scanf("%d",&ch);
+//Calculating final amount that will be returned
+    switch (ch) 
+	{
+        case 1:
+            finalamt=totalsav+(totalsav*0.04);
+            break;
+        case 2:
+            finalamt=totalsav+(totalsav*0.06);
+            break;
+        case 3:
+            finalamt=totalsav+(totalsav*0.05);
+            break;
+        default:
+            printf("Invalid choice.\n");
+            return 0;
+    }
+
+    printf("\nTotal Saved Amount: Rs.%.2f",totalsav);
+    printf("\nExpected Value After Investment: Rs.%.2f\n",finalamt);
+//Saving the memory
+    file=fopen("investment_history.txt","a");
+
+    if (file==NULL) 
+	{
+        printf("Error opening file.\n");
+        return 0;
+    }
+
+    fprintf(file,"Daily Save: Rs.%d\n",dailysav);
+    fprintf(file,"Days: %d\n",days);
+    fprintf(file,"Total Saved: Rs.%.2f\n",totalsav);
+    fprintf(file,"Final Amount: Rs.%.2f\n",finalamt);
+    fprintf(file,"--------------------------\n");
+
+    fclose(file);
+
+    printf("\nInvestment details saved successfully.\n");
+    printf("Thank you for investing safely!\n");
+
+    return 0;
+}
+
+#2
+Risk calculator
+
+#include<stdio.h>
+int main() 
+{
+    int income;
+    int investmentPeriod; // in years
+
+    printf("Enter your monthly income (in INR): ");
+    scanf("%d", &income);
+
+    printf("Enter investment period (in years): ");
+    scanf("%d", &investmentPeriod);
+
+    if (investmentPeriod > 3 && income > 20000) {
+        printf("\nRisk Profile: LOW RISK\n");
+        printf("Suggested Investments:\n");
+        printf("- Fixed Deposits (FD)\n");
+        printf("- Government Bonds\n");
+        printf("- Large-cap Mutual Funds\n");
+    }
+    else if (investmentPeriod > 3 && income < 20000) {
+        printf("\nRisk Profile: HIGH RISK\n");
+        printf("Suggested Investments:\n");
+        printf("- Small-cap Mutual Funds\n");
+        printf("- Stocks\n");
+        printf("- High-growth SIPs\n");
+    }
+    else {
+        printf("\nRisk Profile: MODERATE RISK\n");
+        printf("Suggested Investments:\n");
+        printf("- Index Funds\n");
+        printf("- Balanced Mutual Funds\n");
+        printf("- Short-term SIPs\n");
+    }
+
+    return 0;
+}
