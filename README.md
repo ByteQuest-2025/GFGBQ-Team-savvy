@@ -15,6 +15,9 @@ eGullak is a smart micro-investment platform designed for first-time investors. 
 * *Java:* Backend logic & calculation.
 * *HTML/JS:* Web interface for the judges.
 
+##PPT link
+https://1drv.ms/p/c/5CFCC4E13F06D5B6/IQAKepGIRmzMSpZOT76Z4TStAf0U4kqlNmZKlqUfZg8Hhhg?e=YCFXX5
+
 
 ### WORKING CODE
 
