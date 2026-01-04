@@ -8,14 +8,14 @@ public class eGullak {
         System.out.println("   🐷 eGullak - Micro Investment App   ");
         System.out.println("-------------------------------------");
 
-        // 1. User Input
+        
         System.out.print("Enter Daily Savings Amount (Rs): ");
         double dailySavings = scanner.nextDouble();
 
         System.out.print("Enter Duration (Days): ");
         int days = scanner.nextInt();
 
-        // 2. Show Options (Matching your Website)
+    
         System.out.println("\nSelect Investment Plan:");
         System.out.println("1. Fixed Deposits (FD) - 5%");
         System.out.println("2. Government Bond - 6%");
@@ -30,7 +30,6 @@ public class eGullak {
         System.out.print("Enter Choice (1-9): ");
         int choice = scanner.nextInt();
 
-        // 3. Logic (Matching your HTML Logic)
         double rate = 0.0;
         String planName = "";
 
@@ -47,11 +46,11 @@ public class eGullak {
             default: System.out.println("Invalid Choice. Using Base Rate."); rate = 0.04;
         }
 
-        // 4. Calculation
+        
         double totalSaved = dailySavings * days;
         double finalAmount = totalSaved + (totalSaved * rate);
 
-        // 5. Final Output
+        
         System.out.println("\n-----------------------------");
         System.out.println("✅ Investment Successful!");
         System.out.println("Plan Selected: " + planName);
@@ -59,4 +58,5 @@ public class eGullak {
         System.out.println("Final Value:   Rs " + finalAmount);
         System.out.println("-----------------------------");
     }
+
 }
